@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
 import './App.css';
-import BadRobot from './BadRobot';
+import BadRobot from './components/BadRobot';
+import RandomRobot from './components/RandomRobot';
+import ReverseRobot from './components/ReverseRobot';
 
 function App() {
   const [userInput, setUserInput] = useState("")
@@ -14,25 +16,14 @@ function App() {
     
    <>
    <h1>The Three Stooges</h1>
-   <input type="text" value={userInput} onChange={handleChange} />
-   <p>GoodRobot says: "I heard you say {userInput}"</p>
-   <p>BadRobot says: <BadRobot input={userInput}/></p>
+   <input type="text" value={userInput} onChange={handleChange} style={{width: 1000}}/>
+   <p>Good Robot says: I heard you say "{userInput}"</p>
+   <p>Bad Robot says: <BadRobot input={userInput}/></p>
+   <p>Reverse Robot says: <ReverseRobot input={userInput}/></p>
+   <p>Hard of hearing Robot says: Ehh? I only heard you say "<RandomRobot input={userInput} />." Speak up!</p>
+  
    </>
   )
 }
 
 export default App;
-
-//map over string, return 
-//reverse method
-/*  const [newString, setNewString] = useState("")
-  const randomRobot = (e) => {
-    let stringMaker = (e.target.value).toString()
-    console.log(stringMaker)
-    let array  = stringMaker.split("")
-    let reversed = array.reverse()
-    const newString = reversed.join("")
-    return setNewString(newString)
-  }
-  
-*/
