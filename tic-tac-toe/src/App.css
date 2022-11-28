@@ -1,6 +1,7 @@
 * {
   font-family: "Fredoka One", cursive;
-  background-color: rosybrown;
+  background-color: cadetblue;
+  background-image: "./assets/hammock.jpg";
 }
 p {
   text-align: center;
@@ -36,6 +37,7 @@ h1 {
   background-color: beige;
   border-radius: 1rem;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .winner {
@@ -53,4 +55,8 @@ h1 {
 
 .yourmove {
   font-size: 30px;
+}
+
+.whole {
+  border-style: solid;
 }

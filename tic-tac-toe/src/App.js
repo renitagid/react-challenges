@@ -87,9 +87,11 @@ const App = () => {
 
   return (
     <>
+  
       <h1>Tic Tac Toe</h1>
+      <div>
       <div className="choose">
-        <div>
+        <div >
           <p> Player 1, choose a mark:</p>
 
           <button
@@ -176,6 +178,7 @@ const App = () => {
         <p></p>
         <Button refresh={refresh} />
         <div className="winner">{winner}</div>
+      </div>
       </div>
     </>
   );
