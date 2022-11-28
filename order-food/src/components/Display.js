@@ -4,7 +4,7 @@ const Display = (props) => {
   //use state to make an empty array, that can be updated with addiitonal items each time the button is clicked, while remmebering the previous items
 
   return (
-    <div style={{display: "grid", gridTemplateColumns: "repeat(5,3fr)", margin: 20}}>
+    <div className="indiv">
       <div>{props.name}: {props.price}</div>
       
       <button

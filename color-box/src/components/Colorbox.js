@@ -1,16 +1,30 @@
 import React, { useState } from "react";
+import "../App.css";
 
 const Colorbox = () => {
         const [color, setColor] = useState([
-          "red",
+          "lightBlue",
+          "lightCoral",
+          "darkSalmon",
+          "lightSalmon",
+          "mediumAquamarine",
+          "burlyWood",
+          "cornSilk",
+          "cadetBlue",
+          "cornflowerBlue",
+          "darkGoldenRod",
+          "darkKhaki",
+          "darkOliveGreen",
+          "darkSeaGreen",
+          "darkSlateGray",
+          "goldenRod",
+          "indianRed",
           "orange",
-          "yellow",
-          "green",
-          "blue",
-          "purple",
-          "pink",
+          "peru",
+          "rosyBrown",
+          "skyBlue"
         ]);
-        let [colorIndex, setColorIndex] = useState(0);
+        let [colorIndex, setColorIndex] = useState(Math.floor(Math.random() * color.length));
         const handleClick = () => {
           let randomNum = Math.floor(Math.random() * color.length) 
           setColorIndex(randomNum)
@@ -22,12 +36,12 @@ const Colorbox = () => {
       <div 
       onClick={handleClick}
         style={{
-          flex: 1,
           backgroundColor: color[colorIndex],
-          borderStyle: "solid",
           height: 100,
           width: 100,
           textAlign: "center",
+          fontSize: 10,
+          padding: 10
         }}
       >
         {color[colorIndex]}

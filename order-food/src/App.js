@@ -16,9 +16,12 @@ function App() {
   console.log(cost);
 
   return (
-    <div style={{margin: 20, padding: 20, borderStyle: "solid", borderRadius: "3rem"}}>
-      <h1>Menu</h1>
-      <h2>Entrees</h2>
+    <div className="app">
+      <h1>Tasty's Cafe</h1>
+      <div className="small">
+      <h2>Menu</h2>
+      <div className="sections">
+      <h3>Entrees</h3>
       {menu.mains.map((item, index) => {
         return (
           
@@ -30,7 +33,7 @@ function App() {
           />
         );
       })}
-      <h2>Sides</h2>
+      <h3>Sides</h3>
          {menu.sides.map((item, index) => {
         return (
           <Display
@@ -41,7 +44,7 @@ function App() {
           />
         );
       })}
-      <h2>Desserts</h2>
+      <h3>Desserts</h3>
          {menu.desserts.map((item, index) => {
         return (
           <Display
@@ -52,7 +55,9 @@ function App() {
           />
         );
       })}
+      </div>
       <Cart cart={cart} cost={cost} />
+      </div>
     </div>
   );
 }
