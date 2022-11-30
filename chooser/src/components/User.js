@@ -9,6 +9,7 @@ const User = (props) => {
   };
   return (
     <>
+    <div className="top">
     <h3>Welcome to the activity chooser, where you and a partner can decide what to do today!</h3>
     <h2>Who are you?</h2>
       <button
@@ -25,6 +26,7 @@ const User = (props) => {
       >
         Person B
       </button>
+      </div>
       {user === "a" ? (
         <ViewA
           choices={props.choices}

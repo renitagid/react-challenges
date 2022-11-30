@@ -6,6 +6,9 @@ const ViewB = (props) => {
   let [choicesB, setChoicesB] = useState([...props.choices]);
 
   const generate = (array) => {
+    if (array.length === 0) {
+      alert("You have voted on all options. Try adding some of your own!");
+    }
     setCurrentOption(
       array.splice(Math.floor(Math.random() * array.length), 1)[0]
     );
@@ -29,60 +32,75 @@ const ViewB = (props) => {
 
   return (
     <>
-    <div>
-      <button
-        onClick={() => {
-          generate(choicesB);
-        }}
-      >
-        Let's get started!
-      </button>
-      </div>
-      <div>
-        <div>
-          <h1>Person B</h1>What do you think about... <strong style={{color: "maroon", fontSize: 20}}>{currentOption}</strong>
+      <div className="viewB">
+        <div className="startButton">
+          <button
+            onClick={() => {
+              generate(choicesB);
+            }}
+          >
+            Let's get started!
+          </button>
         </div>
-        <button
-          onClick={() => {
-            answerB(currentOption);
-          }}
-        >
-          Yes
-        </button>
-        <button
-          onClick={() => {
-            generate(choicesB);
-          }}
-        >
-          No
-        </button>
-      </div>
+        
+          <div className="voteBlock">
+            So, what do you think about...{" "}
+            <div className="choice">{currentOption} ?</div>
+          
+          <div className="buttonRow">
+            <button
+              onClick={() => {
+                answerB(currentOption);
+              }}
+            >
+              Sounds fun!
+            </button>
+            <button
+              onClick={() => {
+                generate(choicesB);
+              }}
+            >
+              Not today.
+            </button>
+            </div>
+          </div>
+        <h1>
+          <Match match={props.match} />
+        </h1>
+        <div className="add">
+          <div style={{ textAlign: "center" }}>
+            Add your own idea! We'll let Person A vote on it too:
+          </div>
+          <div className="submitBar">
+            <input type="text" value={userInputB} onChange={handleChangeB} />
+            <button
+              onClick={() => {
+                handleClickB(userInputB);
+              }}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <div className="lists">
+          <div>
+            My List:{" "}
+            <div>
+              {props.listB.map((value) => (
+                <div>{value}</div>
+              ))}
+            </div>
+          </div>
 
-      <div>Add your own idea! We'll let Person A vote on it too:</div>
-      <input type="text" value={userInputB} onChange={handleChangeB} />
-      <button
-        onClick={() => {
-          handleClickB(userInputB);
-        }}
-      >
-        Submit
-      </button>
-      <div>
-        My List:{" "}
-        <div>
-          {props.listB.map((value) => (
-            <div>{value}</div>
-          ))}
+          <div>
+            My Matches with Person A:
+            <div>
+              {props.shared.map((value) => (
+                <div>{value}</div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-      <h1>
-        <Match match={props.match} />
-      </h1>
-      <div>
-        My matches with Person A
-        {props.shared.map((value) => (
-          <div>{value}</div>
-        ))}
       </div>
     </>
   );
