@@ -6,10 +6,13 @@ import menu from "./components/menu";
 
 function App() {
   let [cart, setCart] = useState([]);
+  let [prices, setPrices] = useState([]);
+
   let [cost, setCost] = useState(0);
   const addToCart = (item) => {
-    setCost(cost + item.price);
+    setCost((cost + item.price));
     setCart([...cart, item.name]);
+    setPrices([...prices, item.price]);
     return null;
   };
   console.log(cart);
@@ -56,7 +59,7 @@ function App() {
         );
       })}
       </div>
-      <Cart cart={cart} cost={cost} />
+      <Cart cart={cart} cost={cost} prices={prices}/>
       </div>
     </div>
   );
