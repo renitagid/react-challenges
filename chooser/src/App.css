@@ -3,7 +3,7 @@
   border-radius: 3rem;
   border-style: solid;
   width: 600px;
-  margin-left: 300px;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -17,7 +17,7 @@
   border-radius: 3rem;
   border-style: solid;
   width: 600px;
-  margin-left: 200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -41,8 +41,9 @@
 .buttonrow {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 20px;
+  width: 500px;
 }
 
 .startButton {
@@ -53,20 +54,29 @@
   margin: 20px;
   display: flex;
   justify-content: space-evenly;
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 2rem;
 }
 
 .submitBar {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .add {
   background-color: lightgrey;
   padding: 20px;
-  border-radius: 3rem;
+  border-radius: 2rem;
+  margin: 20px;
 }
 
 .match {
   font-size: 35px;
   text-align: center;
+}
+
+span {
+  text-decoration: underline;
 }

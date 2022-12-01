@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Match from "./Match";
 
 const ViewB = (props) => {
-  const [currentOption, setCurrentOption] = useState();
-  let [choicesB, setChoicesB] = useState([...props.choices]);
+  const [currentOption, setCurrentOption] = useState("...");
+  let [choicesB, setChoicesB] = useState([...props.currentChoices]);
 
   const generate = (array) => {
     if (array.length === 0) {
@@ -67,6 +67,26 @@ const ViewB = (props) => {
         <h1>
           <Match match={props.match} />
         </h1>
+
+        <div className="lists">
+          <div>
+            <span>My List:{" "}</span>
+            <div>
+              {props.listB.map((value) => (
+                <div>{value}</div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <span>My Matches with Person A:</span>
+            <div>
+              {props.shared.map((value) => (
+                <div>{value}</div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="add">
           <div style={{ textAlign: "center" }}>
             Add your own idea! We'll let Person A vote on it too:
@@ -80,25 +100,6 @@ const ViewB = (props) => {
             >
               Submit
             </button>
-          </div>
-        </div>
-        <div className="lists">
-          <div>
-            My List:{" "}
-            <div>
-              {props.listB.map((value) => (
-                <div>{value}</div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            My Matches with Person A:
-            <div>
-              {props.shared.map((value) => (
-                <div>{value}</div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
